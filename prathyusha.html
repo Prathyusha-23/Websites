@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QIS College Navigation</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        #map {
+            position: relative;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        #map img {
+            max-width: 100%;
+            height: auto;
+        }
+        .marker {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: black; /* Marker color */
+            border-radius: 50%;
+        }
+        .route {
+            position: absolute;
+            background-color: blue;
+            height: 2px;
+            z-index: 680; /* Ensure the route is above the image */
+        }
+        h1 {
+            color: black; /* Title color */
+        }
+        #walker {
+            position: absolute;
+            width: 30px; /* Size of the walking figure */
+            height: 30px; /* Size of the walking figure */
+            background-size: cover;
+            background-image: url("data:image/jpeg;base64,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");
+            display: none; /* Hidden initially */
+        }
+    </style>
+</head>
+<body>
+
+<h1>Welcome to QIS College Navigation</h1>
+<select id="destination">
+    <option value="">Select a destination</option>
+    <option value="Boys hostel">Boys hostel</option>
+    <option value="IT Canteen">IT Canteen</option>
+    <option value="Seminar hall">Seminar hall</option>
+    <option value="1st Year(M)">1st Year(M)</option>
+    <option value="Girls hostel">Girls hostel</option>
+    <option value="Pharmacy">Pharmacy</option>
+    <option value="Library">Library</option>
+    <option value="CSE(A,B,C,D)">CSE(A,B,C,D)</option>
+    <option value="Civil(L)">Civil(L)</option>
+    <option value="stationery">Stationery</option>
+    <option value="ECE (E,F,G,H,I,J)">ECE (E,F,G,H,I,J)</option>
+    <option value="CERO & MBA">CERO & MBA</option>
+    <option value="Girls canteen">Girls canteen</option>
+    <option value="Canteen">Canteen</option>
+    <option value="Mech Labs">Mech Labs</option>
+    <option value="IT(O)">IT(O)</option>
+    <option value="Waiting hall">Waiting hall</option>
+    <option value="Ground">Ground</option>
+    <option value="Bus Ground">Bus Ground</option>
+    <option value="Parking">Parking</option>
+    <option value="Basket ball court">Basket ball court</option>
+</select>
+<button onclick="showRoute()">Show Route</button>
+
+<div id="map">
+    <img src="3d college.png" alt="Map" />
+    <div id="marker" class="marker" style="display: none;"></div>
+    <div id="walker"></div> <!-- Walking figure -->
+</div>
+
+<script>
+    const destinations = {
+        "Boys hostel": { x: 74, y: 129, path: [{ x: 251, y: 153 }, { x: 84, y: 240 },{x:11,y:179},{x:74,y:129}] }, // Example of path
+        "IT Canteen": { x: 127, y: 201, path: [{ x: 260, y: 167 }, { x: 127, y: 201 }] },
+        "Seminar hall": { x: 116, y: 132, path: [{ x: 257, y: 162 }, { x: 79, y: 236 },{x:20,y:199},{x:116,y:132}] },
+        "1st Year(M)": { x: 122, y: 296, path: [{ x: 462, y: 300 }, { x: 248, y: 411 },{x:71,y:327},{x:122,y:296}] },
+        "Girls hostel": { x: 401, y: 84, path: [{ x: 260, y: 164 }, { x: 401, y: 84 }] },
+        "Pharmacy": { x: 551, y: 120, path: [{ x: 470, y: 300 }, { x: 638, y: 174 },{x:551,y:120}] },
+        "Library": { x: 422, y: 236, path: [{ x:380, y: 253 }, { x: 422, y: 236 }] },
+        "CSE(A,B,C,D)": { x:626, y: 330, path: [{ x:587, y:364 }, { x: 626, y: 330 }] },
+        "Civil(L)": { x: 295, y: 362, path: [{ x: 467, y: 302 }, { x: 307, y: 379 },{x:295,y:362}] },
+        "stationery": { x: 619, y:159, path: [{ x: 467, y: 301 }, { x: 645, y: 176 },{x:619,y:159}] },
+        "ECE (E,F,G,H,I,J)": { x: 423, y: 236, path: [{ x:380, y: 257 }, { x: 423, y: 236 }] },
+        "CERO & MBA": { x: 314, y: 379, path: [{ x:468, y: 304 }, { x: 314, y: 379 }] },
+        "Girls canteen": { x: 479, y: 351, path: [{ x: 467, y: 307 }, { x: 431, y: 324 },{x:479,y:351}] },
+        "Canteen": { x: 668, y: 175, path: [{ x:467, y:303 }, { x: 668, y: 175 }] },
+        "Mech Labs": { x: 744, y: 215, path: [{ x:878, y:296 }, { x: 744, y: 215 }] },
+        "IT(O)": { x: 867, y: 283, path: [{ x:867, y:283 }]},
+        "Waiting hall": { x: 767, y: 445, path: [{ x:767, y:445 }] },
+        "Basket ball court": { x: 372, y: 277, path: [{ x:397, y:264 }, { x: 372, y: 277 }] },
+        "Bus Ground": { x: 635, y: 508, path: [{ x:635, y:508 }] },
+        "Parking": { x: 837, y: 377, path: [{ x:837, y:377 }] },
+        "Ground": { x:308, y:257, path: [{ x:349, y:240 }, { x: 308, y: 257 }] },
+        // Define paths for other destinations
+    };
+
+    const gateCoordinates = { x: 697, y: 415 }; // Example coordinates for the gate
+
+    function showRoute() {
+        const selectedDestination = document.getElementById('destination').value;
+        const marker = document.getElementById('marker');
+        const walker = document.getElementById('walker');
+        marker.style.display = 'block';
+        walker.style.display = 'none'; // Hide walker initially
+
+        // Reset marker position
+        marker.style.top = '0';
+        marker.style.left = '0';
+
+        // Clear existing routes
+        const existingRoutes = document.querySelectorAll('.route');
+        existingRoutes.forEach(route => route.remove());
+
+        if (destinations[selectedDestination]) {
+            const { x, y, path } = destinations[selectedDestination];
+            marker.style.top = `${y}px`;
+            marker.style.left = `${x}px`;
+
+            // Draw the route
+            drawRoute(gateCoordinates, path);
+            
+            // Move the walker along the route
+            moveWalker(gateCoordinates, path);
+        } else {
+            marker.style.display = 'none'; // Hide the marker if no valid selection
+        }
+    }
+
+    function drawRoute(start, path) {
+        let previousPoint = start;
+
+        path.forEach(point => {
+            const route = document.createElement('div');
+            route.className = 'route';
+
+            const length = Math.sqrt(Math.pow(point.x - previousPoint.x, 2) + Math.pow(point.y - previousPoint.y, 2));
+            route.style.width = `${length}px`;
+            route.style.top = `${previousPoint.y}px`;
+            route.style.left = `${previousPoint.x}px`;
+            route.style.transformOrigin = '0 0';
+            route.style.transform = `rotate(${Math.atan2(point.y - previousPoint.y, point.x - previousPoint.x) * 180 / Math.PI}deg)`;
+
+            document.getElementById('map').appendChild(route);
+            previousPoint = point; // Move to the next point
+        });
+    }
+
+    function moveWalker(start, path) {
+        const walker = document.getElementById('walker');
+        walker.style.display = 'block'; // Show the walker
+        walker.style.top = `${start.y}px`;
+        walker.style.left = `${start.x}px`;
+
+        const totalSteps = 100; // Number of steps to take
+        const pathPoints = [start, ...path]; // Include starting point
+        let currentStep = 0;
+        let currentPathIndex = 0;
+
+        const interval = setInterval(() => {
+            if (currentStep < totalSteps && currentPathIndex < pathPoints.length - 1) {
+                const startPoint = pathPoints[currentPathIndex];
+                const endPoint = pathPoints[currentPathIndex + 1];
+                
+                const dx = (endPoint.x - startPoint.x) / totalSteps;
+                const dy = (endPoint.y - startPoint.y) / totalSteps;
+
+                walker.style.top = `${parseFloat(walker.style.top) + dy}px`;
+                walker.style.left = `${parseFloat(walker.style.left) + dx}px`;
+
+                currentStep++;
+                if (currentStep >= totalSteps) {
+                    currentStep = 0;
+                    currentPathIndex++;
+                }
+            } else {
+                clearInterval(interval);
+            }
+        }, 30); // Adjust the speed of the walking figure
+    }
+</script>
+
+</body>
+</html>
