@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Recycling Form</title>
+    <style>
+        body {
+            background-image: url("https://img.lovepik.com/photo/60180/0876.jpg_wh860.jpg");
+font-family: Arial, sans-serif;
+background-color: #f7f7f7;
+color: #333;
+background-repeat: no-repeat;
+background-size: cover;
+
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #28a745;
+        }
+
+        .form-container label {
+            font-size: 1rem;
+            margin-top: 10px;
+            display: block;
+        }
+
+        .form-container input, .form-container select, .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-container button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.2rem;
+            border-radius: 5px;
+        }
+
+        .form-container button:hover {
+            background-color: #218838;
+        }
+
+        .form-container .required::after {
+            content: " *";
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Scrap selling Registration Form</h2>
+        <form action="submit_form.php" method="POST">
+            <!-- Name -->
+            <label class="required" for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <!-- Password -->
+            <label class="required" for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <!-- Email -->
+            <label class="required" for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <!-- Mobile Number -->
+            <label class="required" for="mobile">Mobile Number:</label>
+            <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" required>
+            <small>Enter a 10-digit mobile number</small>
+
+            <!-- Address -->
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="4" required></textarea>
+
+            <!-- Industry -->
+            <label class="required" for="industry">Material type:</label>
+            <input type="text" id="industry" name="industry"  placeholder="like plastic , metal, electronic,paper">
+
+            <!-- Industry Amount of Scrap -->
+            <label class="required" for="scrap">Amount of Scrap (in tons):</label>
+            <input type="number" id="scrap" name="scrap" min="1" required>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>

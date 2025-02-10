@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Reusing plastic</title>
+    <style>
+        /* Basic Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: #28a745;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #009688;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .hero h1 {
+            font-size:4rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 20px 0;
+        }
+
+        .hero button {
+            background-color: #ff9800;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        .hero button a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Metal Section */
+        #metal-section {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #e3f2fd;
+}
+
+#metal-section h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.metal-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
+    gap: 20px;
+}
+
+.metal-item {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: auto;
+    border-radius: 8px; /* Optional, to add rounded corners to the cards */
+}
+
+.metal-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensures the images fill the container without distortion */
+}
+
+@media (max-width: 768px) {
+    .metal-container {
+        grid-template-columns: repeat(2, 1fr); /* Switches to 2 cards per row on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .metal-container {
+        grid-template-columns: 1fr; /* Switches to 1 card per row on very small screens */
+    }
+}
+
+        /* Video Section */
+        #video-section {
+            padding: 40px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        #video-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .video-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 300px;
+        }
+
+        /* Footer Section */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #28a745;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#metal-section">plastic</a></li>
+                <li><a href="#video-section">Videos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Plastic Reusing</h1>
+        <p>Plastic reusing involves reprocessing used plastic materials into new products, reducing waste and conserving resources. This includes polythene covers,plastic waste...</p>
+        <button><a href="#metal-section">Explore Plastic Reusing</a></button>
+    </section>
+
+    <!-- Metal Recycling Section -->
+    <section id="metal-section">
+        <h2>Plastic Industries</h2>
+        <h4>Popular Plastic dealing industries</h4>
+        <div class="metal-container">
+            <!-- Metal Item 1 -->
+            <div class="metal-item">
+                <h3>Banyan nation</h3>
+                <img src="https://www.banyannation.com/wp-content/uploads/2024/04/BN_Logo.png" alt="Aluminum Recycling">
+                <a href="https://www.banyannation.com/">Know more</a>
+            </div>
+
+            <!-- Metal Item 2 -->
+            <div class="metal-item">
+                <h3>Apic.com</h3>
+                <img src="https://apic.co.in/sisc-asia-event/logo_main.png" alt="Aluminum Recycling">
+                <a href="https://apic.co.in/how-a-recycling-facility-in-vizag-is-countering-the-plastic-waste-problem">Know More</a>
+            </div>
+
+            <!-- Metal Item 3 -->
+            <div class="metal-item">
+                <h3>Indiamart.com</h3>
+                <img src="data:image/png;base64,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" alt="Copper Recycling">
+                <a href="https://dir.indiamart.com/prakasam/plastic-scrap.html">Know More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section id="video-section">
+        <h2>Watch and Learn More</h2>
+        <div class="video-container">
+            <!-- Video 1 -->
+            <!-- Video 1 -->
+<!-- Video 1 -->
+<!-- Video 1 -->
+<div class="video">
+    <iframe src="https://www.youtube.com/embed/O7JkFJXcOKM" title="Metal Recycling Process 1"></iframe>
+</div>
+
+<!-- Video 2 -->
+<div class="video">
+    <iframe src="https://www.youtube.com/embed/tmJ09TyII0A" title="Aluminum Recycling Process"></iframe>
+</div>
+
+
+
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 A seconf life to scrap. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

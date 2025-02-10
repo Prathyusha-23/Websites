@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Reusing Paper</title>
+    <style>
+        /* Basic Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: #28a745;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #009688;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .hero h1 {
+            font-size:4rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 20px 0;
+        }
+
+        .hero button {
+            background-color: #ff9800;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        .hero button a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Metal Section */
+        #metal-section {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #e3f2fd;
+}
+
+#metal-section h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.metal-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
+    gap: 20px;
+}
+
+.metal-item {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: auto;
+    border-radius: 8px; /* Optional, to add rounded corners to the cards */
+}
+
+.metal-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensures the images fill the container without distortion */
+}
+
+@media (max-width: 768px) {
+    .metal-container {
+        grid-template-columns: repeat(2, 1fr); /* Switches to 2 cards per row on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .metal-container {
+        grid-template-columns: 1fr; /* Switches to 1 card per row on very small screens */
+    }
+}
+
+        /* Video Section */
+        #video-section {
+            padding: 40px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        #video-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .video-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 300px;
+        }
+
+        /* Footer Section */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #28a745;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#metal-section">paper</a></li>
+                <li><a href="#video-section">Videos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Paper Reusing</h1>
+        <p>Paper recycling involves reprocessing used paper into new products, conserving trees and reducing waste..</p>
+        <button><a href="#metal-section">Explore Paper Reusing</a></button>
+    </section>
+
+    <!-- Metal Recycling Section -->
+    <section id="metal-section">
+        <h2>Paper reusing Industries</h2>
+        <h4>Popular Paper reusing industries</h4>
+        <div class="metal-container">
+            <!-- Metal Item 1 -->
+            <div class="metal-item">
+                <h3>Exportersindia.com</h3>
+                <img src="data:image/jpeg;base64,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" alt="Aluminum Recycling">
+                <a href="https://www.exportersindia.com/prakasam/waste-paper.htm">Know more</a>
+            </div>
+
+            <!-- Metal Item 2 -->
+            <div class="metal-item">
+                <h3>ITC</h3>
+                <img src="https://www.itcportal.com/images/logo_itc.png" alt="Aluminum Recycling">
+                <a href="https://www.itcportal.com/media-centre/press-reports-content.aspx?id=357&type=C&news=ITC-Paperboards-recycle-waste">Know More</a>
+            </div>
+
+            <!-- Metal Item 3 -->
+            <div class="metal-item">
+                <h3>Scrapmonster</h3>
+                <img src="https://www.scrapmonster.com/theme2023/assets/images/logo.webp" alt="Copper Recycling">
+                <a href="https://www.scrapmonster.com/companies/paper-recycling/region/india/andhra-pradesh/15#google_vignette">Know More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section id="video-section">
+        <h2>Watch and Learn More</h2>
+        <div class="video-container">
+            <!-- Video 1 -->
+            <!-- Video 1 -->
+<!-- Video 1 -->
+<!-- Video 1 -->
+<!-- Video 1 (YouTube Shorts) -->
+<div class="video">
+    <iframe src="https://www.youtube.com/embed/U4N9zE9gJJc" title="Metal Recycling Process 1"></iframe>
+</div>
+
+<!-- Video 2 -->
+<div class="video">
+    <iframe src="https://www.youtube.com/embed/20QuJf4vbGk" title="Aluminum Recycling Process"></iframe>
+</div>
+
+
+
+
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 A seconf life to scrap. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

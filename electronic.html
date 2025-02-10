@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Electronic scrap Reusing</title>
+    <style>
+        /* Basic Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: #28a745;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #009688;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .hero h1 {
+            font-size:4rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 20px 0;
+        }
+
+        .hero button {
+            background-color: #ff9800;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        .hero button a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Metal Section */
+        #metal-section {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #e3f2fd;
+}
+
+#metal-section h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.metal-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
+    gap: 20px;
+}
+
+.metal-item {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: auto;
+    border-radius: 8px; /* Optional, to add rounded corners to the cards */
+}
+
+.metal-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensures the images fill the container without distortion */
+}
+
+@media (max-width: 768px) {
+    .metal-container {
+        grid-template-columns: repeat(2, 1fr); /* Switches to 2 cards per row on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .metal-container {
+        grid-template-columns: 1fr; /* Switches to 1 card per row on very small screens */
+    }
+}
+
+        /* Video Section */
+        #video-section {
+            padding: 40px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        #video-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .video-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 300px;
+        }
+
+        /* Footer Section */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #28a745;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#metal-section">Electronic scrap</a></li>
+                <li><a href="#video-section">Videos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Electronic scrap Reusing</h1>
+        <p>Learn how different electronic waste items are reused in industries and contribute to a sustainable future.</p>
+        <button><a href="#metal-section">Explore Electronic scrap Reusing</a></button>
+    </section>
+
+    <!-- Metal Recycling Section -->
+    <section id="metal-section">
+        <h2>Electronic scrap Industries</h2>
+        <h4>Popular Electronic Scrap dealing industries</h4>
+        <div class="metal-container">
+            <!-- Metal Item 1 -->
+            <div class="metal-item">
+                <h3>E-Waste reuse</h3>
+                <img src="https://sreeewasterecycling.com/wp-content/uploads/2024/02/1-1-1024x1024.png" alt="Aluminum Recycling">
+                <a href="https://sreeewasterecycling.com/visakapathnam/e-waste-recyclers">Know more</a>
+            </div>
+
+            <!-- Metal Item 2 -->
+            <div class="metal-item">
+                <h3>BRP Infotech</h3>
+                <img src="https://brpinfotech.in/wp-content/themes/BRP-infotech/img/logo-main.png" alt="Aluminum Recycling">
+                <a href="https://brpinfotech.in/state/andhra-pradesh/">Know More</a>
+            </div>
+
+            <!-- Metal Item 3 -->
+            <div class="metal-item">
+                <h3>Payswiff</h3>
+                <img src="https://payswiff.com/wp-content/uploads/2022/07/payswiff-chola-logo.png" alt="Copper Recycling">
+                <a href="https://payswiff.com/e-waste-management/">Know More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section id="video-section">
+        <h2>Watch and Learn More</h2>
+        <div class="video-container">
+            <!-- Video 1 -->
+            <!-- Video 1 -->
+<!-- Video 1 -->
+<div class="video">
+    <iframe src="https://www.youtube.com/embed/3s_ZNEFPiE0" title="Metal Recycling Process 1"></iframe>
+</div>
+
+<!-- Video 2 -->
+<div class="video">
+    <iframe src="https://www.youtube.com/embed/YTcjXtNyWVA" title="Aluminum Recycling Process"></iframe>
+</div>
+
+
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 A seconf life to scrap. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
